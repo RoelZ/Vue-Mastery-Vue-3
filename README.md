@@ -80,7 +80,7 @@ To do it right, you’d need to:
 
 Once your app is deployed, there are additional concerns around maintaining it and continuing to deploy new and improved versions of it in a stable way, and ensuring you can roll back to earlier versions in an emergency. This can all be quite a pain. If you aren’t confident about what you’re doing, it’s a pretty high-stakes risk to take all of this on solo.
 
-Fortunately, there are platforms that do a lot of the heavy lifting of deployment (and re-deployment) for us. Which brings me to my solution of choice, which we’ll be learning about in this lesson: Google Firebase.
+Fortunately, there are platforms that do a lot of the heavy lifting of deployment (and re-deployment) for us. Which brings me to my solution of choice, which we’ll be learning about in this lesson: [Google Firebase](https://firebase.google.com/).
 
 ![Google Firebase](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/images%2FL7%2Fgoogle-firebase.png?alt=media&token=989ad4c7-982e-4c88-96fb-e4e63d3d9070)
 
@@ -89,17 +89,60 @@ Firebase provides a set of products and solutions, from which **Hosting** delive
 
 ![Firebase Solutions](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/images%2FL7%2Ffirebase-solutions.png?alt=media&token=0c92bdb9-3884-4213-8c55-85970bcec937)
 
-In order to get started using it to deploy our Vue app, you’ll just have to hook up your Google Account.
+In order to get started using it to deploy our Vue app, you’ll just have to [hook up your Google Account](https://console.firebase.google.com/).
 
 
----
-### The following is currently WIP
+After you’ve completed the sign up [you’ll land on a dashboard](https://console.firebase.google.com/) where you can create your first project. 
 
-https://firebasestorage.googleapis.com/v0/b/vue-mastery.appspot.com/o/flamelink%2Fmedia%2F4.1608050141297.jpg?alt=media&token=85edd247-b88d-4339-a2fe-0396832eb9a5
+![Add Firebase Project](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/images%2FL7%2Ffirebase-add-project-step-1.png?alt=media&token=c91c8254-0c93-454f-8728-a9a7a3961627)
 
-You’ll be emailed a verification link, which you’ll click to enter into your new account. Once you’re in, you’ll see that there are a number of services available within Render. We’re going to start off by clicking the blue New + button, which reveals a dropdown with some options.
+1. Create a new project by pressing **Add Project** and give your project a name.
+2. Choose to enable or disable the use of Google Analytics.  
+*for this current project it won't be useful, but it can be come in very handy!*
 
-https://firebasestorage.googleapis.com/v0/b/vue-mastery.appspot.com/o/flamelink%2Fmedia%2F5.1608049818394.jpg?alt=media&token=3e10cc37-229f-4493-b20c-5627df996f14
+After your project has been created it will show you direct you to your **Project overview dashboard**.
+
+As you may notice, there are a lot of products and services you could add to the project. In this case we only want to make use of Hosting, so click on **Hosting** and click **Get started**.
+
+The setup will tell you to use the Firebase CLI by installing it on your local environment with NPM.
+
+Run the following command in your terminal.
+```
+npm install -g firebase-tools
+```
+
+When `firebase-tools` has been installed use the CLI to login into your Google account by running the following command.
+```
+firebase login
+```
+
+This will trigger a new browser which will ask you to connect the CLI with your Firebase account. This way, you can control Firebase functions from your terminal.
+
+After the login has been completed, navigate to your project folder which we created in [Lesson 2](https://github.com/RoelZ/Vue-Mastery-Vue-3/tree/L2) and run the following command.
+```
+firebase init
+```
+
+This will guide you through the steps you can take, depending on your choices.
+We want to choose **Hosting: Configure files for Firebase Hosting and set up GitHub Action deploys**
+
+![Firebase CLI init](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/images%2FL7%2Ffirebase-cli-step-1.png?alt=media&token=3a34a411-caca-4da9-ba94-466e25c15f36)
+
+Use the arrow keys and `<space>` key to select and press `<enter>`
+
+### Project setup
+The next step is where you can choose to **Use an existing project** 
+and choose the project you'd created earlier in your browser.
+
+### What do you want to use as your public directory?
+Firebase will ask you *What you want to use as your public directory?* It's important to know that we want to use our `/dist` folder, since our `/public` folder is mainly meant to place our `index.html` which will be used as a template when we run `npm run build`
+
+So type `dist` and press `<enter>`
+
+### Configure as a single-page app?
+Press `y`, this will lead every route to our app. Since we handle everything with Vue, even the routes.
+
+### Set up automatic builds and deploys with GitHub?
 
 As you can see, we’re able to deploy a Static Site served over a global CDN with the ability to add a custom domain, plus SSL out of the box. If you’re not familiar, SSL (Secure Sockets Layer) is a protocol for web browsers and servers that allows for the authentication, encryption, and decryption of data sent over the Internet. In other words: it’s a built-in security measure that comes free with Render.
 
