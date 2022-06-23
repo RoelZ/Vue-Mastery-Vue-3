@@ -1,5 +1,5 @@
 # real-world-vue
-This repo is a fork of the [Vue Mastery course](https://www.vuemastery.com/courses/real-world-vue3), [Real World Vue 3 app](https://github.com/Code-Pop/Real-World_Vue-3).
+This repo is a clone of the [Vue Mastery course](https://www.vuemastery.com/courses/real-world-vue3), [Real World Vue 3 app](https://github.com/Code-Pop/Real-World_Vue-3).
 
 ## 3. Single File Components
 [![Single File Components](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/images%2Fvideo-play-btn-small.png?alt=media&token=f455fef9-f9b9-461c-8cd6-69b98bec5909)](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/videos%2F3.single-file-components.mp4?alt=media&token=8087ab82-a4dd-4354-9703-58c8db7aefb3)  
@@ -20,8 +20,6 @@ module.exports = {
 ```
 Here, I’ve set up some rules so that Prettier will change any double quotes (") to single ones (') and remove any semicolons (;). I’m not advocating for or against semicolons and double quotes. This is a simple example of how you might add some Prettier configuration rules to your project. We could do something similar for ESLint as well. For a more in-depth look at how you can configure ESLint + Prettier as well as get the most out of VS Code, you can check out this article.
 
----
-
 ## What are these .vue files?
 In order to start building our app, we need to get some foundational understanding of how things are working within the demo app the CLI created for us, including the **views** directory, which includes two single-file .vue files: **Home.vue** and **About.vue**
 
@@ -32,8 +30,6 @@ These are the components that Vue Router loads up when we navigate to the Home a
 In the next lesson, we’ll explore the essentials of Vue Router, but for now you just need to understand that these “view” components are the different views that can be seen (or navigated to) within our app. They can contain child components that are nested within them, and their children will be displayed in that view as well. For example, the **Home.vue** component has a child: **HelloWorld.vue**, which has a bunch of template code that is being displayed when we’re on the Home route.
 
 Each of these .vue files are single file components, and that’s what this lesson is exploring: How are single file components composed, and how do you use them to create a Vue app?
-
----
 
 ## Anatomy of a Single File Component
 When we’re talking about Vue apps, we’re really talking about a collection of Vue components.
@@ -51,8 +47,6 @@ To use the analogy of a human body, you can think of the template as the skeleto
 Traditionally, these sections are written in HTML, JavaScript and CSS. However, with the proper setup, you could also use alternatives such as Pug, TypeScript, and SCSS.
 
 Now that we’re starting to understand single file components, we can start building our own. But first, what are we building in this course, exactly?
-
----
 
 ## The app we’re building
 By the end of this course, we will have built an app that display events.
@@ -192,8 +186,6 @@ export default {
 Now, we should be seeing our EventCard showing up in the browser when we’re on the Home view.
 
 ![Home view](https://firebasestorage.googleapis.com/v0/b/vue-mastery.appspot.com/o/flamelink%2Fmedia%2F7.1603236564766.jpg?alt=media&token=ccc406cc-9152-4b70-8d89-6492e4302f29)
-
----
 
 ## Refactoring for a more production-ready use case
 We’re making great progress, but remember we want the **EventCard** to be displaying in the middle of the Home page. And, since we’ll eventually have a collection of events that we pull in from an API call, we need to do a bit of refactoring to make this a more production-ready use case.
@@ -374,12 +366,10 @@ export default {
 ```
 
 Notice how we’re binding the event’s `id` to the `:key` attribute. This gives Vue.js a way to identify and can keep track of each unique **EventCard**.
----
 
 ## Parent feeds each EventCard its own event
 Additionally, as we iterate over the `events` array to create a new **EventCard** for each event object, we’re passing in that `event` object into a new `:event` prop we’ve added to the **EventCard**. This way, each **EventCard** has all of the data it needs to display its own event info.
 
----
 
 ## Parent displays EventCards in a Flexbox container
 If we check this out in the browser, it’s working. We’ve created an EventCard for each of the `events` in **Home.vue**’s data.
@@ -411,8 +401,6 @@ Finally, we just need to put these events in a Flexbox container to get things l
 ```
 
 Now, our **EventCards** will be displayed within a center-aligned column.
-
----
 
 ## What about Global Styles?
 So far, we’ve discussed scoped styles and how the scoped attribute allows us to add styles that target the specific component we’re concerned about. But what about global styles that we want applied to our entire app? While there are different ways to achieve this, the simplest way to get started with this is by heading into the **App.vue** file. Remember: this is the root component of our app.
@@ -507,7 +495,6 @@ But for our use case, we don’t need that title showing up in every view, so we
 ```
 Now that title will only show up one the Home route.
 
---- 
 
 ## Let’s ReVue
 We’ve covered a lot. We learned what a single file .vue component is, how it’s composed (with `scoped` versus global styles), and how to start using these .vue components to build up a Vue app. In the next lesson, we’re going to dive deeper into the essentials of Vue Router to better understand how to set up app navigation. See you there!
