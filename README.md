@@ -165,7 +165,12 @@ And here you state which branch you'll be using for merging your PR. This will b
 **Congratulations!** You've just completed all the steps that are necessary for an automated deployment! Now we're going to check if it actually works.
 
 ### From local coding to updating your live environment
+As you may have noticed, after finishing the previous steps, Firebase created four new files in your codebase.
 
+![Firebase project files]()
+These files contain all the information Github will need to setup an Action.
+
+Now commit these files and push it to your repository.
 
 
 ### Adjusting for History Mode
