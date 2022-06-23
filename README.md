@@ -6,7 +6,6 @@ This repo is a fork of the [Vue Mastery course](https://www.vuemastery.com/cours
 
 **Important!** Watch the video linked above before moving on.
 
-## Vue CLI - Creating the Project
 In this tutorial, we’ll create our project using the Vue CLI. We’ll then look at the Vue UI, a graphical user interface for managing our project. We’ll end by touring the project that the CLI generates for us to get comfortable working within these files and folders.
 
 ### Why a CLI?
@@ -29,17 +28,15 @@ We can use single-file .vue components, TypeScript, SCSS, Pug, the latest versio
 When you save your project, changes appear instantly in the browser.
 ---
 ### Installing the CLI
-In order to use the CLI, you’ll need to have [Node.js](https://nodejs.org/) version 8.9 or above (v10+ recommended).
+In order to use the CLI, you’ll need to have [Node.js](https://nodejs.org/) (preferably the LTS) installed on your computer.
 
-To install the CLI, run this command in your terminal:
+After Node.js has been installed, run this command in your terminal to install the CLI:
 
 ```
 npm i -g @vue/cli
-# OR
-yarn global add @vue/cli
 ```
-Once it is installed, you’ll have access to the vue binary in your command line. We’ll use this to create our project.
----
+Once it is installed, you’ll have access to the vue binary in your command line. Don't forget to reload your command line.  
+We’ll use this to create our project.
 
 ### Creating a Vue project
 There are two ways we can create our project. With the Vue UI, or directly from the command line, which we’ll do now by running this command in our terminal:
@@ -49,31 +46,38 @@ vue create real-world-vue
 ```
 This command will start the creation of a Vue project, with the name of “real-world-vue”.
 
-We’ll then be prompted with the option to pick a default preset or to manually select features. Using the down arrow key, we’ll highlight **Manually select features**, then hit enter.
+- **Please pick a preset:**  
+   We’ll then be prompted with the option to pick a default preset or to manually select features. Using the down arrow key, we’ll highlight **Manually select features**, then hit `ENTER`
 
-We’ll then be presented with a list of feature options. Using the down arrow key, we’ll move down and use the spacebar to select **Router, Vuex and Linter / Formatter**. Then hit enter.
+- **Check the features needed for your project:**  
+   We’ll then be presented with a list of feature options. Using the down arrow key, we’ll move down and use the spacebar to select **Router, Vuex and Linter / Formatter**. Then hit `ENTER`
 
-Next up, we’ll select the version of Vue.js that we want to use. Of course, we’ll select Vue 3 here.
+- **Choose a version of Vue.js that you want to start the project with**  
+   Next up, we’ll select the version of Vue.js that we want to use. Of course, we’ll select **Vue 3** here.
 
-Then we’ll say **Y** (yes) to using History mode for Vue Router.
+- **Use history mode for router**  
+   Then we’ll say **Y** (yes) to using History mode for Vue Router.
 
-We’ll then be asked to choose a Linter / Formatter, which is entirely up to you. I’ll go ahead and choose **ESLint + Prettier** and tell it to **Lint on save**.
+- **Pick a linter / formatter config**  
+   We’ll then be asked to choose a Linter / Formatter, which is entirely up to you. I’ll go ahead and choose **ESLint + Prettier** and tell it to **Lint on save**.
 
-And for the sake of this course, I’ll choose to have dedicated config files, but we could also keep them in package.json. Again, this is totally up to you.
+- **Where do you prefer placing config for Babel, ESLint, etc.?**  
+   And for the sake of this course, I’ll choose to have dedicated config files, but we could also keep them in package.json. Again, this is totally up to you.
 
-We have the option to save all of these settings as a preset. I’ll choose not to with N.
-
-If you’d like to save this as a preset, however, it will be stored in a JSON file named `.vuerc` in your user home directory.
+- **Save this as a preset for future projects**  
+   We have the option to save all of these settings as a preset. I’ll choose not to with N.
+   
+   If you’d like to save this as a preset, however, it will be stored in a JSON file named `.vuerc` in your user home directory.
 
 When we hit enter, our project will be created automatically.
----
-### Serving our Project
+
+## Serving our Project
 Once our project is done being created, we can cd into it. In order to view it live in our browser, we’ll run the command npm run serve, which compiles the app and serves it live at a local host.
 
 ![Welcome to Vue](https://firebasestorage.googleapis.com/v0/b/vue-mastery.appspot.com/o/flamelink%2Fmedia%2F1.opt.1601414879841.jpg?alt=media&token=4ae623d2-d0b6-4c83-a0a9-0a59ef32076c)
 
 Above is our app, running live in the browser. It already has two pages, the **Home** page and the **About** page, which we can navigate between because it’s using Vue Router.
----
+
 ## Vue UI
 Now that we understand how to create a Vue project from the command line, let’s repeat this same process but with the Vue UI instead, which is an intuitive visual way to manage our Vue projects.
 
@@ -92,7 +96,7 @@ You can also add **plugins** to your project from the Vue UI, which makes it ver
 
 ![Vue UI Plugins](https://firebasestorage.googleapis.com/v0/b/vue-mastery.appspot.com/o/flamelink%2Fmedia%2F4.opt.1601414892137.jpg?alt=media&token=80124d71-2f35-4ff6-a4b0-dfbc47d2848c)
 
-We won’t be installing this plugin, but if you’re interested in learning about this component design framework, we have an entire [Vuetify course](https://www.vuemastery.com/courses/beautify-with-vuetify/getting-started-with-vuetify).
+We won’t be installing this plugin, but if you’re interested in learning about this component design framework, Vue Mastery has an entire [Vuetify course](https://www.vuemastery.com/courses/beautify-with-vuetify/getting-started-with-vuetify).
 
 Additionally, we can view all of the dependencies our project is using and add new dependencies from the UI. The UI also has a tab for us to configure the project globally and configure ES-Lint rules and more.
 
@@ -130,21 +134,21 @@ The **App.vue** file is the root component that all other components are nested 
 The **main.js** file is what *renders* our **App.vue** component (and everything nested within it) and *mounts* it to the DOM.
 
 Finally, we have a **.gitignore** file where we can specify what we want git to ignore, along with a **babel.config.js** file and our **package.json**, which helps npm identify the project and handle its dependencies, and a **README.md**.
----
+
 ### How the App is Loaded
 You might be wondering now, how is the app being loaded? Let’s take a look at that process.
 
 📁**src/main.js**
-```
-    import { createAPP } from "vue";
-    import App from "./App.vue";
-    import router from "./router";
-    import store from "./store";
+```javascript
+import { createAPP } from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
 
-    createApp(App)
-      .use(Router)
-      .use(Store)
-      .mount("#app");
+createApp(App)
+  .use(Router)
+  .use(Store)
+  .mount("#app");
 ```
 In our **main.js** file, we’re importing the createApp method from Vue, along with our **App.js** component. We’re then running that method, feeding in the App (the root component that includes all of our application code since all other components are nested within it).
 
@@ -158,16 +162,14 @@ If we peek inside our **index.html** file, we can see there’s a div with the i
 <!-- built files will be auto-injected -->
 ```
 Ah. So this is where our Vue app is being mounted. Later, we’ll gain a deeper understanding of how this index.html serves as the “single page” of our single page application.
----
+
 ### Putting it all together
 Let’s take a look at this process more visually:
 
 ![Vue visually explained](https://firebasestorage.googleapis.com/v0/b/vue-mastery.appspot.com/o/flamelink%2Fmedia%2F7.opt.1601414904403.jpg?alt=media&token=7744f453-9a9f-4a37-a8c6-8b0bcd12679c)
----
+
 ### Wrapping Up
 You should now have an understanding of how we can create a Vue project and how to manage it from the Vue UI. We also explored the project that was created for us to get ready to start customizing this project. In the next lesson, we’ll build our first single file .vue component.
-
-
 
 [<< Previous lesson](https://github.com/RoelZ/Vue-Mastery-Vue-3/tree/master)
  | 
