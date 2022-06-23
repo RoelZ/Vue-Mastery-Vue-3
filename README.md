@@ -6,7 +6,6 @@ This repo is a clone of the [Vue Mastery course](https://www.vuemastery.com/cour
 
 **Important!** Watch the video linked above before moving on.
 
-## Single File Components
 Now that we’ve created our project with the Vue CLI, we’re ready to start customizing it to build our own app.
 
 If you’re coding along you’ll want to checkout this branch of our project repo to grab the starting code. In that code, I want to bring your attention to this file I’ve added:
