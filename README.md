@@ -1,12 +1,11 @@
 # real-world-vue
-This repo is a fork of the [Vue Mastery course](https://www.vuemastery.com/courses/real-world-vue3), [Real World Vue 3 app](https://github.com/Code-Pop/Real-World_Vue-3).
+This repo is a clone of the [Vue Mastery course](https://www.vuemastery.com/courses/real-world-vue3), [Real World Vue 3 app](https://github.com/Code-Pop/Real-World_Vue-3).
 
-## 5. Vue Router Essentials
-[![Vue Router Essentials](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/images%2Fvideo-play-btn-small.png?alt=media&token=f455fef9-f9b9-461c-8cd6-69b98bec5909)](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/videos%2F5.api-calls-with-axios.mp4?alt=media&token=b0db4e1c-f570-46ff-bb97-26dffe77c94e)  
+## 5. API Calls with Axios
+[![API Calls with Axios](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/images%2Fvideo-play-btn-small.png?alt=media&token=f455fef9-f9b9-461c-8cd6-69b98bec5909)](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/videos%2F5.api-calls-with-axios.mp4?alt=media&token=b0db4e1c-f570-46ff-bb97-26dffe77c94e)  
 
 **Important!** Watch the video linked above before moving on.
 
-## API Calls with Axios
 As our app currently stands, the events that we’re displaying are simply hard-coded within the data of the **EventList.vue** component. In a real-world app, there would likely be some sort of database of events that we would be pulling from. Our app would make a request for the events, the server would respond with those events (as JSON), and we’d take those events and set them as our component’s data, which we then display in the view.
 
 ![Fetch external data with API Calls](https://firebasestorage.googleapis.com/v0/b/vue-mastery.appspot.com/o/flamelink%2Fmedia%2F1.opt.1605053999987.jpg?alt=media&token=0ae8fd12-5843-459c-a2b4-41785bee9d39)
