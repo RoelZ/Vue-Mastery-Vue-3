@@ -1,10 +1,9 @@
 # real-world-vue
-This repo is a fork of the [Vue Mastery course](https://www.vuemastery.com/courses/real-world-vue3), [Real World Vue 3 app](https://github.com/Code-Pop/Real-World_Vue-3).
+This repo is a clone of the [Vue Mastery course](https://www.vuemastery.com/courses/real-world-vue3), [Real World Vue 3 app](https://github.com/Code-Pop/Real-World_Vue-3).
 
 ## 8. Scaling the App
 [![Scaling the App](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/images%2Fvideo-play-btn-small.png?alt=media&token=f455fef9-f9b9-461c-8cd6-69b98bec5909)](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/videos%2F8.scaling-the-app.mp4?alt=media&token=cb7960ac-4a70-4ec6-9fdb-4a85e8193dff)  
 
-## Scaling the app
 We’ve reached the final lesson of this course, and I want to congratulate you for following along until the end. We’ve built a simple yet solid Vue app and deployed it out into the world. So where do we go from here? There are a number of features we could add, and additional concepts within the Vue framework (and ecosystem of tools) to learn. So what should a Vue developer master next?
 
 In this lesson, I’m going to give a tour of what potential next steps we could take to scale up our app in different directions. This will simultaneously provide some guidance around how to continue with your Vue learning journey and how to best utilize the Vue Mastery platform to level up your skills.
