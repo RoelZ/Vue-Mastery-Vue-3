@@ -101,6 +101,8 @@ As you may notice, there are a lot of products and services you could add to the
 
 The setup will tell you to use the Firebase CLI by installing it on your local environment with NPM.
 
+## Firebase CLI
+
 Run the following command in your terminal.
 ```
 npm install -g firebase-tools
@@ -132,6 +134,7 @@ Use the arrow keys and `<space>` key to select and press `<enter>`
 The next step is where you can choose to `Use an existing project` and select the project you'd created earlier in your browser.
 
 ### Hosting
+
 #### 1. What do you want to use as your public directory?
 Firebase will ask you what you want to use as your public directory. It's important to know that we want to use our `/dist` folder, since our `/public` folder is only meant as a placeholder for our `index.html`, which will be used as a template when we run `npm run build`
 
@@ -143,32 +146,36 @@ Press `y`, this will lead every route to our app. Since we handle everything wit
 #### 3. Set up automatic builds and deploys with GitHub?
 When choosing `Yes` the CLI will start a browser which will ask you to connect Firebase to your Github account.
 
-**For which GitHub repository would you like to set up a GitHub workflow? (format: user/repository)**  
+- **For which GitHub repository would you like to set up a GitHub workflow? (format: user/repository)**  
 After you'll be asked to state which repository should include a workflow. This will be our repo you forked, so normally `{your-github-username}/Vue-Mastery-Vue-3` if you haven't changed the project's name.
 
-**Set up the workflow to run a build script before every deploy?**  
+- **Set up the workflow to run a build script before every deploy?**  
 Since we want to use an automatic deploy, it should have the latest files of our project.
 So by adding `npm run build` to this workflow and Firebase uses the `dist` folder to deploy it to the hosting, we'll get the very latest version of our project.
 
-So press `y` and Firebase will ask what script should run.
+  So press `y` and Firebase will ask what script should run.
 The default `npm ci` (which means clean install) and `npm run build` should suffice for this project, so press `<enter>`
 
-**Set up automatic deployment to your site's live channel when a PR is merged?**
+- **Set up automatic deployment to your site's live channel when a PR is merged?**  
 With this option, Firebase deployment will be triggered from Github, when you push your latest code into a new Pull Request (PR) and merge this to a branch of your choice.
 
-Press `y`
+   Press `y`
 
-**What is the name of the GitHub branch associated with your site's live channel?**
+- **What is the name of the GitHub branch associated with your site's live channel?**  
 And here you state which branch you'll be using for merging your PR. This will be the `master` branch in our case.
 
-**Congratulations!** You've just completed all the steps that are necessary for an automated deployment! Now we're going to check if it actually works.
+**Congratulations!**  
+You've just completed all the steps that are necessary for an automated deployment! Now we're going to check if it actually works.
 
-### From local coding to updating your live environment
+## From development to live environment
+
 As you may have noticed, after finishing the previous steps, Firebase created four new files in your codebase.
 
 ![Firebase project files](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/images%2FL7%2Ffirebase-files.png?alt=media&token=27029d63-63bc-475e-840d-85be59906226)
+
 These files contain all the information Github will need to setup an Action.
 
+### Github
 Now commit these files and push it to your repository.
 As soon as you've pushed your files, be sure to check your new commit in Github. It will show an orange icon in front of the latest commit.
 
@@ -179,69 +186,22 @@ When you click on it you can see our new Deploy to Firebase Hosting is already b
 ![Firebase project files](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/images%2FL7%2Ffirebase-github-action.png?alt=media&token=7567dbe7-c300-4404-bd33-240f97c95254)
 
 
-### Adjusting for History Mode
-We can now click on the link Render created for our site, which in my case is https://real-world-vue-3.onrender.com, to view our app live!
+With this part succesfully completed we now have two ways of automatically building and deploying our app.
+1. When merging to the master branch
+2. When creating a Pull Request from incoming changes, which will create preview url for you to share with other members of your project to verify.
 
-As we click around, it looks like it’s working. But watch what happens when we open a new tab and try going to a specific page, like: https://real-world-vue-3.onrender.com/event/123
+### Firebase
 
-https://firebasestorage.googleapis.com/v0/b/vue-mastery.appspot.com/o/flamelink%2Fmedia%2F9.1608049844886.jpg?alt=media&token=90cd89d2-7775-4810-924c-4e86bbe710d5
+If you head over to your Firebase console in the browser, check Hosting at the left side of your Project overview.
 
-Uh oh… we’re getting a “Not Found” message, and there’s this 404 error in the console. Why is this happening?
+Here you'll notice that there's a custom domain created along with the release history of the published deployments.
 
-In the Vue Router Essentials lesson, I briefly mentioned how our router is using history mode because we selected that option when we created our project from the Vue CLI. Well that just became very relevant.
+![Firebase Hosting](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/images%2FL7%2Ffirebase-hosting.png?alt=media&token=79289fd3-2883-4b95-8227-35a35ceecd88)
 
-📁src/router/index.js
+Now click on the domain link and see your Real World Vue app live on the web!
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
-})
-In history mode, our app is taking advantage of the browser’s history.pushState API to change the URL without reloading the page.
-
-https://firebasestorage.googleapis.com/v0/b/vue-mastery.appspot.com/o/flamelink%2Fmedia%2F10.1608050201860.jpg?alt=media&token=e4165b7d-f18c-4031-a58b-ccdad9225ba5
-
-The problem we’re currently running into is the fact that our app is a single page app, which means everything needs to be served from index.html. While our development server was configured to work this way for us, we need to configure Render’s rules so that it knows to always serve up index.html, no matter what url we navigate to.
-
-We can do this very simply within the Redirect / Rewrite tab of our static site’s dashboard:
-
-https://firebasestorage.googleapis.com/v0/b/vue-mastery.appspot.com/o/flamelink%2Fmedia%2F11.1608049857552.jpg?alt=media&token=6cd3f6b6-e897-4270-a605-0ff767e98b2a
-
-We’ll add a catchall of /* and tell it to always Rewrite to /index.html Now, no matter what url we request, it will be served from index.html. Problem solved.
-
-By the way… 🤔 If you’re wondering why everything seemed to work fine initially, before I pasted that url into a new tab and everything broke, that’s because when we first visited our new site, we visited the root route (’/’) which inherently served up index.html, and history mode took over from there.
-
-With that catchall implemented, we’ve now solved our issue and successfully deployed our site. Before we end, let’s tour Render a bit more to understand what else is possible.
-
-Touring Render
-We already looked at the Redirects / Rewrites tab, but there are other tabs here that are just as useful, such as Events, which shows a history of deploys that have been made. This is where we can perform a rollback to a previous build if necessary.
-
-https://firebasestorage.googleapis.com/v0/b/vue-mastery.appspot.com/o/flamelink%2Fmedia%2F12.1608050225404.jpg?alt=media&token=24ee1877-062f-45a2-b8d9-4384852c7e17
-
-Under the Pull Request tab, you can enable pull requests and Render will automatically create a new instance of your site any time a pull request is created on your deployed branch. With its own URL, it can be used to review code before merging and will be deleted automatically when the PR is closed. This makes testing and collaboration easier.
-
-Speaking of collaboration, you can also create and work within teams on Render, which an individual account holder can create from their dropdown here:
-
-https://firebasestorage.googleapis.com/v0/b/vue-mastery.appspot.com/o/flamelink%2Fmedia%2F13.1608050247646.jpg?alt=media&token=77eab61a-1198-4b23-a9a8-42d1ec71dd9d
-
-Render scales with you
-As your app scales, perhaps with a more robust backend or some server-side rendering, you can scale up your Render services, too—horizontally (add more instances of a service) or vertically (add more CPU and RAM to an instance)—with features including:
-
-Web services
-Managed PostgreSQL databases
-Cron jobs
-Private services
-Background workers
-And you can choose from several environments:
-
-Docker
-Node
-Ruby
-Go
-Elixir
-Python
-Rust
-A Helpful Community Forum
-If you ever get stuck while using Render, they also have a community form that can help you get unstuck. In fact, they’ve even created a “Vue Mastery” category to address any issues you may run into while following this lesson.
+Remember, if in any case you want to roll back to a earlier version of a deployment of your app, you can do so in the **release history** on this page.
+Every deployment will be shown in the list and you can roll back with one click.
 
 ## What’s next?
 Now that we’ve finished coding our app and deployed it out into the wild, where do we go from here? There are many more features to add and concepts to unpack, and in our next lesson we’ll take a look at the different ways we can take this app to the next level. See you there!
