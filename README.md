@@ -1,12 +1,11 @@
 # real-world-vue
-This repo is a fork of the [Vue Mastery course](https://www.vuemastery.com/courses/real-world-vue3), [Real World Vue 3 app](https://github.com/Code-Pop/Real-World_Vue-3).
+This repo is a clone of the [Vue Mastery course](https://www.vuemastery.com/courses/real-world-vue3), [Real World Vue 3 app](https://github.com/Code-Pop/Real-World_Vue-3).
 
 ## 4. Vue Router Essentials
 [![Vue Router Essentials](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/images%2Fvideo-play-btn-small.png?alt=media&token=f455fef9-f9b9-461c-8cd6-69b98bec5909)](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/videos%2F4.vue-router-essentials.mp4?alt=media&token=d56f93a2-8ac4-437a-bf95-946f76a43cb0)  
 
 **Important!** Watch the video linked above before moving on.
 
-## Vue Router Essentials
 In this lesson we’re going to introduce you to the tools that Vue uses to navigate between pages (or views) in our application. We’ll cover:
 
 - What is Client-Side Routing?
