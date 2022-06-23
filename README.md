@@ -1,5 +1,5 @@
 # real-world-vue
-This repo is a fork of the [Vue Mastery course](https://www.vuemastery.com/courses/real-world-vue3), [Real World Vue 3 app](https://github.com/Code-Pop/Real-World_Vue-3).
+This repo is a clone of the [Vue Mastery course](https://www.vuemastery.com/courses/real-world-vue3), [Real World Vue 3 app](https://github.com/Code-Pop/Real-World_Vue-3).
 
 ## 2. Vue CLI - Creating the project
 [![Vue CLI - Creating the project](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/images%2Fvideo-play-btn-small.png?alt=media&token=f455fef9-f9b9-461c-8cd6-69b98bec5909)](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/videos%2F2.vue-cli-creating-the-project.mp4?alt=media&token=be7f7fa6-a35b-4f6d-8502-7d9a3885c97d)  
