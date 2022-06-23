@@ -1,11 +1,7 @@
 # real-world-vue
-
-# real-world-vue
 This repo is a fork of the [Vue Mastery course](https://www.vuemastery.com/courses/real-world-vue3), [Real World Vue 3 app](https://github.com/Code-Pop/Real-World_Vue-3).
 
 ## 7. Deploying with Firebase
-
-**Important!** This branch is still WIP
 
 ## Deploying with Firebase
 At this point, our example app has all of the features we need it to for this course. We’ve covered a lot of concepts along the way and unpacked fundamental Vue app development practices. We’re now ready to take our project to the next step of any real-world application and deploy it out into the real world. In this lesson, we’ll understand what happens in the build process and how to smoothly deploy our app with a convenient platform for this which is called Firebase.
@@ -118,6 +114,9 @@ firebase login
 
 This will trigger a new browser which will ask you to connect the CLI with your Firebase account. This way, you can control Firebase functions from your terminal.
 
+
+> ❗ **IMPORTANT:** In order to follow along with these steps, you’ll need to **clone** the Vue Mastery course repo to your personal Github account, if you haven't done so yet.
+
 After the login has been completed, navigate to your project folder which we created in [Lesson 2](https://github.com/RoelZ/Vue-Mastery-Vue-3/tree/L2) and run the following command.
 ```
 firebase init
@@ -131,48 +130,45 @@ We want to choose **Hosting: Configure files for Firebase Hosting and set up Git
 Use the arrow keys and `<space>` key to select and press `<enter>`
 
 ### Project setup
-The next step is where you can choose to **Use an existing project** 
-and choose the project you'd created earlier in your browser.
+The next step is where you can choose to `Use an existing project` and select the project you'd created earlier in your browser.
 
-### What do you want to use as your public directory?
-Firebase will ask you *What you want to use as your public directory?* It's important to know that we want to use our `/dist` folder, since our `/public` folder is mainly meant to place our `index.html` which will be used as a template when we run `npm run build`
+### Hosting
+#### 1. What do you want to use as your public directory?
+Firebase will ask you what you want to use as your public directory. It's important to know that we want to use our `/dist` folder, since our `/public` folder is only meant as a placeholder for our `index.html`, which will be used as a template when we run `npm run build`
 
 So type `dist` and press `<enter>`
 
-### Configure as a single-page app?
+#### 2. Configure as a single-page app?
 Press `y`, this will lead every route to our app. Since we handle everything with Vue, even the routes.
 
-### Set up automatic builds and deploys with GitHub?
+#### 3. Set up automatic builds and deploys with GitHub?
+When choosing `Yes` the CLI will start a browser which will ask you to connect Firebase to your Github account.
 
-As you can see, we’re able to deploy a Static Site served over a global CDN with the ability to add a custom domain, plus SSL out of the box. If you’re not familiar, SSL (Secure Sockets Layer) is a protocol for web browsers and servers that allows for the authentication, encryption, and decryption of data sent over the Internet. In other words: it’s a built-in security measure that comes free with Render.
+**For which GitHub repository would you like to set up a GitHub workflow? (format: user/repository)**  
+After you'll be asked to state which repository should include a workflow. This will be our repo you forked, so normally `{your-github-username}/Vue-Mastery-Vue-3` if you haven't changed the project's name.
 
-We’ll select this Static Site option to deploy our Vue app with Render, which prompts us to select a repo for the site that we want to deploy. Since we haven’t yet connected any repos to our Render account, we’ll click on the “Github” link to do so. If you’re not already logged into Github, you’ll sign in to install Render within your Github account and select the repo you’d like to connect.
+**Set up the workflow to run a build script before every deploy?**  
+Since we want to use an automatic deploy, it should have the latest files of our project.
+So by adding `npm run build` to this workflow and Firebase uses the `dist` folder to deploy it to the hosting, we'll get the very latest version of our project.
 
-❗IMPORTANT: In order to follow along with these steps, you’ll need to fork the Vue Mastery course repo to your personal Github account. That way, you’ll be able to connect the forked repo at this step.
+So press `y` and Firebase will ask what script should run.
+The default `npm ci` (which means clean install) and `npm run build` should suffice for this project, so press `<enter>`
 
-https://firebasestorage.googleapis.com/v0/b/vue-mastery.appspot.com/o/flamelink%2Fmedia%2F6.1608050160184.jpg?alt=media&token=ab53f22d-2e2d-40b1-8182-2bb64884fc22
+**Set up automatic deployment to your site's live channel when a PR is merged?**
+With this option, Firebase deployment will be triggered from Github, when you push your latest code into a new Pull Request (PR) and merge this to a branch of your choice.
 
-Upon clicking install, you’ll be redirected back to Render, where you should now see that newly connected repo showing up.
+Press `y`
 
-https://firebasestorage.googleapis.com/v0/b/vue-mastery.appspot.com/o/flamelink%2Fmedia%2F7.1608049833719.jpg?alt=media&token=3de82aa6-25ea-4faf-9e6b-c7655477e49d
+**What is the name of the GitHub branch associated with your site's live channel?**
+And here you state which branch you'll be using for merging your PR. This will be the `master` branch in our case.
 
-Now we’re ready to select that repo and deploy it as a static site, which is a very straightforward process. As the page intelligently says: “You seem to be using Vue.js, so we’ve autofilled some fields accordingly.”
+**Congratulations!** You've just completed all the steps that are necessary for an automated deployment! Now we're going to check if it actually works.
 
-We’ll give our state site a Name; I’m calling it “Real World Vue 3”.
+### From local coding to updating your live environment
 
-As for the Branch, this is where you’d typically select Master (which is the default selection) since most apps deploy the Master branch of their repo. However, in our case, since I’ve been building the app incrementally with each new lesson ending with its own ending branch, we’re going to select L6-end since this includes the final code for our entire example app.
 
-We can leave the autofilled Build Command unchanged, as well as the name of the directory to publish to: dist (look familiar?).
 
-There are additional Advanced options as well, including the ability to Add Environment Variables and/or a Secret File, but we’ll skip those for now.
-
-I do want to bring your attention to the Auto Deploy field, though, which is set to “Yes” by default. This means our app will be automatically redeployed whenever a change is pushed to this branch, which is a pretty awesome feature. If we wanted to handle this manually, we’d toggle this to “No” and we could instead trigger a manual deploy with the button of the same name.
-
-https://firebasestorage.googleapis.com/v0/b/vue-mastery.appspot.com/o/flamelink%2Fmedia%2F8.1608050183045.jpg?alt=media&token=fbafd2a8-12f8-4393-b5c4-d091d90b16f0
-
-Now we’re ready to hit the Create Static Site button and watch Render bake our site into a delicious live site. 🥧
-
-Adjusting for History Mode
+### Adjusting for History Mode
 We can now click on the link Render created for our site, which in my case is https://real-world-vue-3.onrender.com, to view our app live!
 
 As we click around, it looks like it’s working. But watch what happens when we open a new tab and try going to a specific page, like: https://real-world-vue-3.onrender.com/event/123
