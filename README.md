@@ -21,7 +21,4 @@ If you don’t know the fundamentals of Vue.js syntax you can follow along, but 
 If you’re ready to build a Real World Vue 3 app, I’ll see you in the rest of the course.
 
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
 [Next lesson >>](https://github.com/RoelZ/Vue-Mastery-Vue-3/tree/L2)
