@@ -166,10 +166,17 @@ And here you state which branch you'll be using for merging your PR. This will b
 ### From local coding to updating your live environment
 As you may have noticed, after finishing the previous steps, Firebase created four new files in your codebase.
 
-![Firebase project files]()
+![Firebase project files](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/images%2FL7%2Ffirebase-files.png?alt=media&token=27029d63-63bc-475e-840d-85be59906226)
 These files contain all the information Github will need to setup an Action.
 
 Now commit these files and push it to your repository.
+As soon as you've pushed your files, be sure to check your new commit in Github. It will show an orange icon in front of the latest commit.
+
+![Firebase project files](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/images%2FL7%2Ffirebase-commit.png?alt=media&token=0c9e593f-1bf9-462b-b48e-5bfb6730f22c)
+
+When you click on it you can see our new Deploy to Firebase Hosting is already being picked up by Github! If you'd like to see what's going on under the hood, you can click on details and see your build process being run in realtime.
+
+![Firebase project files](https://firebasestorage.googleapis.com/v0/b/gotvotes-71a47.appspot.com/o/images%2FL7%2Ffirebase-github-action.png?alt=media&token=7567dbe7-c300-4404-bd33-240f97c95254)
 
 
 ### Adjusting for History Mode
