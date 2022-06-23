@@ -1,9 +1,8 @@
 # real-world-vue
-This repo is a fork of the [Vue Mastery course](https://www.vuemastery.com/courses/real-world-vue3), [Real World Vue 3 app](https://github.com/Code-Pop/Real-World_Vue-3).
+This repo is a clone of the [Vue Mastery course](https://www.vuemastery.com/courses/real-world-vue3), [Real World Vue 3 app](https://github.com/Code-Pop/Real-World_Vue-3).
 
 ## 7. Deploying with Firebase
 
-## Deploying with Firebase
 At this point, our example app has all of the features we need it to for this course. We’ve covered a lot of concepts along the way and unpacked fundamental Vue app development practices. We’re now ready to take our project to the next step of any real-world application and deploy it out into the real world. In this lesson, we’ll understand what happens in the build process and how to smoothly deploy our app with a convenient platform for this which is called Firebase.
 
 ## What happens when we build our app?
